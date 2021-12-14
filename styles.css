@@ -44,11 +44,19 @@ body {
 
 .box {
     position: absolute;
-    height: 150px;
+    height: 17%;
     width: auto;
     transform: translateX(30%);
     transform: translateY(30%);
     z-index: 2;
+}
+
+.shadow {
+    z-index: 1;
+    position: absolute;
+    width: 30%;
+    transform: translateX(30%);
+    transform: translateY(10%);
 }
 
 .accordion {
