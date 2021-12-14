@@ -17,6 +17,7 @@ body {
     background-color: white;
     border-radius: 15px;
     width: 70%;
+    z-index: 1;
 }
 
 .container {
@@ -25,8 +26,10 @@ body {
     padding: 30px;
 }
 
-img {
+.graphic {
     width: 100%;
+    transform: translateX(-20%);
+    z-index: -2;
 }
 
 .column1 {
@@ -41,37 +44,74 @@ img {
 
 .box {
     position: absolute;
-    height: 100px;
+    height: 150px;
     width: auto;
-}
-
-#faq h3 {
-    color: hsl(237, 12%, 33%);
-    display: block;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-#faq p {
-    overflow: hidden;
-    position: relative;
-    color: #fff;
-    max-height: 250px;
-    will-change: max-height;
-    contain: layout;
-    display: inline-block;
-    opacity: 1;
-    transform: translate(0, 0);
-    margin-top: 5px;
-    transition: .3s opacity, .6s max-height;
-    hyphens: auto;
+    transform: translateX(30%);
+    transform: translateY(30%);
     z-index: 2;
 }
 
-#faq ul li {
-    margin-top: 10px;
+.accordion {
+    max-width: 450px;
+    box-shadow: 0 0 10px hsl(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
 }
 
-#faq ul li:last-of-type {
-    padding-bottom: 0;
+.accordion__label,
+.accordion__content {
+    padding: 14px 20px;
+}
+
+.accordion__label {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.1s;
+    color: hsl(237, 12%, 33%);
+    font-size: 1.2em;
+}
+
+.accordion__label:hover {
+    background: rgb(0, 0, 0, 0.1);
+}
+
+.accordion__label:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 6px;
+    background-image: url(/images/icon-arrow-down.svg);
+    background-size: contain;
+    transition: transform 0.4s;
+    font-weight: bold;
+    color: black;
+}
+
+.accordion__content {
+    background: #ffffff;
+    line-height: 1.6;
+    font-size: 0.8em;
+    display: none;
+    color: hsl(240, 6%, 50%);
+    font-size: 1.1em;
+}
+
+.accordion__input {
+    display: none;
+}
+
+.accordion__input:checked~.accordion__content {
+    display: block;
+}
+
+.accordion__input:checked~.accordion__label:after {
+    transform: translateY(-50%) rotate(0.5turn);
+}
+
+.question {
+    border-bottom: 1px solid rgb(0, 0, 0, 0.1);
 }
